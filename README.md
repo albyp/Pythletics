@@ -21,6 +21,7 @@ Coming soon...
 List of planned features or improvements that are currently being developed
 
 - [ ] Problem generation
+- [ ] Flask web app
 
 ### Pipeline
 
