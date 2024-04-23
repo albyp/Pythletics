@@ -65,6 +65,27 @@ def run_generator(selected_level, num_problems):
   return problems
 
 
+def run_quiz(problems):
+  correct = 0
+  incorrect = 0
+  start_time = time.time()
+  for problem in problems:
+    if time.time() - start_time >= 20:
+      print("Time's up!")
+      break
+    answer = int(
+        input(f"{problem['num1']} {problem['operator']} {problem['num2']} = "))
+    problem['input'] = answer
+    if answer == problem['answer']:
+      # print("Correct!")
+      correct += 1
+    else:
+      incorrect += 1
+
+  print(f"You got {correct} out of {correct + incorrect} correct.")
+  return correct, incorrect, problems
+
+
 def main():
   level = level_select()
   print(f"You selected {level}.")
@@ -72,6 +93,8 @@ def main():
   num_problems = 20
 
   problems = run_generator(level, num_problems)
+
+  correct, incorrect, problems = run_quiz(problems)
   for problem in problems:
     print(problem)
 
