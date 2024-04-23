@@ -54,13 +54,24 @@ def gen_prob_lvl_1(num_problems):
   return problems
 
 
+def run_generator(selected_level, num_problems):
+  problems = []
+  if selected_level == "level_1":
+    problems = gen_prob_lvl_1(num_problems)
+  elif selected_level == "level_2":
+    problems = gen_prob_lvl_2(num_problems)
+  else:
+    print("Invalid level selected: ", selected_level)
+  return problems
+
+
 def main():
   level = level_select()
   print(f"You selected {level}.")
 
   num_problems = 20
 
-  problems = gen_prob_lvl_1(num_problems)
+  problems = run_generator(level, num_problems)
   for problem in problems:
     print(problem)
 
