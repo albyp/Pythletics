@@ -94,7 +94,13 @@ def main():
 
   problems = run_generator(level, num_problems)
 
+  # run countdown and quiz
+  for i in range(3, 0, -1):
+    print(i)
+    time.sleep(1)
   correct, incorrect, problems = run_quiz(problems)
+
+  # display results
   for problem in problems:
     print(problem)
 
